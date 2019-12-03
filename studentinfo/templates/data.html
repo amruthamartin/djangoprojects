@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function getData (){
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", "productdata", true);
+	        xhttp.onreadystatechange = function() {
+	        if (this.readyState == 4 && this.status == 200) {
+                 var x= document.getElementById("product");
+                 var y= document.getElementById("price");
+                 var data = JSON.parse (this.responseText);
+	    	     x.innerHTML= data.products;
+	    	     y.innerHTML= data.prices;
+    	    }
+	      };
+    	  xhttp.send();
+    	}
+        function hello (){
+            var x= document.getElementById("data");
+            x.innerHTML = "<h1> Hello All !!! </h1>";
+        }
+        function clearData (){
+            var x= document.getElementById("price");
+            x.innerHTML = "";
+          var y= document.getElementById("product");
+            y.innerHTML = "";
+        }
+    </script>
+</head>
+<body>
+
+This is my student data page
+
+<div id="data"></div>
+<div id="price"></div>
+
+<div id="product"></div>
+
+<button onclick="getData()" > student1</button>
+<button onclick="getData()" > student2</button>
+<button onclick="getData()" > student3</button>
+<button onclick="getData()" > student4</button>
+<button onclick="getData()"> student5</button>
+<
+</body>
+</html>
